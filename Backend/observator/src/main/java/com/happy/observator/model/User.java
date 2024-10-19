@@ -23,4 +23,57 @@ public class User {
 
     private boolean isCertified;
     private long balance;
+
+
+    public int getId() {
+        return this.id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getUsername() {
+        return this.username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return this.password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public boolean isIsCertified() {
+        return this.isCertified;
+    }
+
+    public boolean getIsCertified() {
+        return this.isCertified;
+    }
+
+    public void setIsCertified(boolean isCertified) {
+        this.isCertified = isCertified;
+    }
+
+    public long getBalance() {
+        return this.balance;
+    }
+
+    public void setBalance(long balance) {
+        this.balance = balance;
+    }
+
+
+    public User() {}
+    
+    public User(String username, String password) {
+        this.username = username;
+        this.password = password;
+    }
 }
