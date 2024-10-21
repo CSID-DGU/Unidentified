@@ -22,22 +22,22 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-                .authorizeHttpRequests((authz) -> authz
-                                .requestMatchers("/login", "/h2-console/**").permitAll()
-                                .anyRequest().authenticated()
-                )
-                .formLogin((form) -> form
-                                .loginPage("/login")
-                                .failureUrl("/login?error=true")
-                                .defaultSuccessUrl("/home", true)
-                                .permitAll()
-                )
-                .logout(logout -> logout
-                        .logoutUrl("/logout")
-                        .logoutSuccessUrl("/login")
-                        .invalidateHttpSession(true)
-                        .deleteCookies("JSESSIONID")
-                        .permitAll());
+            .authorizeHttpRequests((authz) -> authz
+                .requestMatchers("/signup", "/login", "/h2-console/**").permitAll()
+                .anyRequest().authenticated()
+            )
+            .formLogin((form) -> form
+                .loginPage("/login")
+                .failureUrl("/login?error=true")
+                .defaultSuccessUrl("/home", true)
+                .permitAll()
+            )
+            .logout(logout -> logout
+                .logoutUrl("/logout")
+                .logoutSuccessUrl("/login")
+                .invalidateHttpSession(true)
+                .deleteCookies("JSESSIONID")
+                .permitAll());
 
         return http.build();
     }
