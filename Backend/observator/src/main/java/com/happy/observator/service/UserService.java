@@ -35,6 +35,9 @@ public class UserService implements UserDetailsService{
     }
 
     public void saveUser(String username, String password){
+        if(userRepositary.findByUsername(username).isPresent()){
+            throw new IllegalArgumentException("Username already taken");
+        }
         User user = new User(username, passwordEncoder.encode(password));
         userRepositary.save(user);
     }
